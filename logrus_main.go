@@ -20,7 +20,6 @@ func InitLogger(logPath string, logFileName string, maxAge time.Duration, rotati
 		baseLogPaht+".info.%Y-%m-%d_%H_%M_%S",
 		rotatelogs.WithMaxAge(maxAge),             // 文件最大保存时间
 		rotatelogs.WithRotationTime(rotationTime), // 日志切割时间间隔
-		rotatelogs.WithRotationCount(),
 	)
 	errorWriter, err := rotatelogs.New(
 		baseLogPaht+".error.%Y-%m-%d_%H_%M_%S",
