@@ -47,14 +47,13 @@ func InitLogger(logPath string, logFileName string, maxAge time.Duration, rotati
 }
 
 func main() {
-	ConfigLocalFilesystemLogger("./log", "test.log", 5*time.Minute, 3*time.Minute)
+	InitLogger("./log", "test.log", 5*time.Minute, 3*time.Minute)
 	for {
 		log.Debugf("mylog %v\n", time.Now().Format("2006/01/02 15:04:05.999"))
 		log.Printf("mylog %v\n", time.Now().Format("2006/01/02 15:04:05.999"))
 		log.Warnf("mylog %v\n", time.Now().Format("2006/01/02 15:04:05.999"))
 		log.Errorf("mylog %v\n", time.Now().Format("2006/01/02 15:04:05.999"))
 		//log.Fatal("mylog %v\n", time.Now().Format("2006/01/02 15:04:05.999"))
-		m1.M1log()
 		time.Sleep(2 * time.Second)
 	}
 	log.Info("Exit\n")
